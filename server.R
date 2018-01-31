@@ -17,10 +17,12 @@ function(input, output, session) {
     h <- gsub('x="Sepal.Length"', paste0('x="', input$xaxis, '"'), h)
     h <- gsub('y="Sepal.Width"', paste0('y="', input$yaxis, '"'), h)
     h <- gsub('z="Petal.Length"', paste0('z="', input$zaxis, '"'), h)
-    h <- gsub('val="Species.Nbr"', paste0('val="', input$color, '"'), h)
     h <- gsub('xlabel="Sepal.Length"', paste0('xlabel="', input$xaxis, '"'), h)
     h <- gsub('ylabel="Sepal.Width"', paste0('ylabel="', input$yaxis, '"'), h)
     h <- gsub('zlabel="Petal.Length"', paste0('zlabel="', input$zaxis, '"'), h)
+	if (input$color!="Species") {
+      h <- gsub('val="Species.Nbr"', paste0('val="', input$color, '"'), h)
+    }
     HTML(paste(h))
   })
   
