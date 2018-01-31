@@ -15,7 +15,7 @@ function(input, output, session) {
   output$aframescatter <- renderUI({
     h <- paste(readLines('iris_scatter.html'), collapse='\n')
     h <- gsub('x="Sepal.Length"', paste0('x="', input$xaxis, '"'), h)
-    h <- gsub('y="Sepal.Width"', paste0('x="', input$yaxis, '"'), h)
+    h <- gsub('y="Sepal.Width"', paste0('y="', input$yaxis, '"'), h)
     h <- gsub('z="Petal.Length"', paste0('z="', input$zaxis, '"'), h)
     h <- gsub('val="Species.Nbr"', paste0('val="', input$color, '"'), h)
     h <- gsub('xlabel="Sepal.Length"', paste0('xlabel="', input$xaxis, '"'), h)
